@@ -1,101 +1,223 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+import { useEffect, useState } from "react";
+import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
+import { Github, Linkedin, Mail } from "lucide-react";
+import Image from 'next/image';
+import Link from 'next/link';
+import type { Skill, Project } from "../lib/types";
+import ProfileImage from "../app/textures/me-pic.jpg"
+import ProjectsSection from './components/ProjectSection';
+
+function LoadingProgress() {
+  const [progress, setProgress] = useState(13);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((prevProgress) => {
+        if (prevProgress >= 90) {
+          clearInterval(timer);
+          return prevProgress;
+        }
+        return prevProgress + 2;
+      });
+    }, 100);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    <div className="w-[60%] max-w-md">
+      <Progress value={progress} className="w-full" />
+      <p className="text-center text-sm text-white mt-2">Loading 3D Scene...</p>
     </div>
   );
 }
+
+const ThreeScene = dynamic(
+  () => import("../app/components/threejs"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-screen w-full flex items-center justify-center bg-[#370617]">
+        <LoadingProgress />
+      </div>
+    )
+  }
+);
+
+const SkillsScene = dynamic(
+  () => import("../app/components/SkillScene"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-[600px] flex items-center justify-center">
+        <LoadingProgress />
+      </div>
+    )
+  }
+);
+
+// Example of projects array
+const projects = [
+  {
+    title: "E-commerce Site",
+    description: "A fully functional e-commerce website built with Next.js and Tailwind CSS.",
+    github: "https://github.com/Khadarrr/e-commerce",
+    live: "https://e-commerce-orcin-omega.vercel.app/"
+  },
+  {
+    title: "Holidaze",
+    description: "A travel planning app that helps users find the best vacation spots.",
+    github: "https://github.com/Khadarrr/holidaze-bookings",
+    live: "https://holidaze-bookings.vercel.app/"
+  },
+  {
+    title: "Auction House",
+    description: "An online auction platform where users can buy and sell items.",
+    github: "https://github.com/Khadarrr/Auction-House-sp",
+    live: "auctionsphere.netlify.app"
+  }
+];
+
+
+const Home = () => {
+  const skills: Skill[] = [
+    "TypeScript",
+    "JavaScript",
+    "TailwindCSS",
+    "Figma",
+    "Supabase",
+    "ThreeJs",
+    "NextJs",
+    "React"
+  ];
+
+  return (
+    <div className="min-h-screen relative">
+      {/* Three.js Background */}
+      <div className="fixed inset-0">
+        <Suspense
+          fallback={
+            <div className="h-screen w-full flex items-center justify-center bg-[#370617]">
+              <LoadingProgress />
+            </div>
+          }
+        >
+          <ThreeScene
+            backgroundColor="#370617"
+            rotationSpeed={0.020}
+          />
+        </Suspense>
+      </div>
+
+      {/* Portfolio Content Overlay */}
+      <div className="relative z-10">
+        {/* Profile Section */}
+        <section className="min-h-screen flex items-center justify-center px-4">
+          <div className="text-center">
+            <div className="mb-6">
+              <div className="w-48 h-48 mx-auto rounded-full bg-white/10 mb-4 relative overflow-hidden">
+                <Image
+                  src={ProfileImage}
+                  alt="Profile"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+            <p className="text-xl text-white/80 mb-2">Hello, I'm</p>
+            <h1 className="text-6xl font-bold text-white mb-4">
+              Khadar
+            </h1>
+            <p className="text-2xl text-white/80 mb-8">
+            Developer
+            </p>
+            <div className="flex justify-center gap-4 mb-8">
+              <Button size="lg" asChild>
+                <Link href="#contact">Contact Me</Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <Link href="#projects">View Projects</Link>
+              </Button>
+            </div>
+            <div className="flex justify-center gap-6">
+              <Button variant="ghost" size="icon" asChild>
+                <Link href="https://github.com/Khadarrr" target="_blank">
+                  <Github className="h-6 w-6" />
+                </Link>
+              </Button>
+              <Button variant="ghost" size="icon" asChild>
+                <Link href="mailto:Khadar_shire@hotmail.com">
+                  <Mail className="h-6 w-6" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <ProjectsSection projects={projects} />
+
+        {/* Skills Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-2">
+            <p className="text-center text-white/80 text-lg mb-2">Skills</p>
+            <h2 className="text-4xl font-bold text-white mb-12 text-center">
+              Programs
+            </h2>
+            <Suspense
+              fallback={
+                <div className="w-full h-[600px] flex items-center justify-center">
+                  <LoadingProgress />
+                </div>
+              }
+            >
+             <SkillsScene 
+      skills={skills}
+      
+    />
+            </Suspense>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="py-20 bg-black/30 backdrop-blur-sm">
+          <div className="container mx-auto px-4">
+            <p className="text-center text-white/80 text-lg mb-2">Get in Touch</p>
+            <h2 className="text-4xl font-bold text-white mb-12 text-center">
+              🥷
+            </h2>
+            <div className="flex justify-center items-center gap-8">
+              <Button variant="ghost" className="text-white" asChild>
+                <Link href="mailto:Khadar_shire@hotmail.com">
+                  <Mail className="mr-2 h-5 w-5" />
+                  Khadar_shire@hotmail.com
+                </Link>
+              </Button>
+              <Button variant="ghost" className="text-white" asChild>
+                <Link href="https://github.com/khadarrr" target="_blank">
+                  <Github className="mr-2 h-5 w-5" />
+                  Khadarrr
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="bg-black/20 backdrop-blur-sm py-8">
+          <div className="container mx-auto px-4 text-center text-white/60">
+            <p>© 2024 Khadar. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
