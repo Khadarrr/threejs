@@ -14,7 +14,7 @@ interface ProjectsProps {
 
 const ProjectsSection: React.FC<ProjectsProps> = ({ projects }) => {
   return (
-    <section id="projects" className="py-20 bg-black/30 backdrop-blur-sm">
+    <section id="projects" className="py-20">
       <div className="container mx-auto px-4">
         <p className="text-center text-white/80 text-lg mb-2">Recent</p>
         <h2 className="text-4xl font-bold text-white mb-12 text-center">Projects</h2>
@@ -26,7 +26,7 @@ const ProjectsSection: React.FC<ProjectsProps> = ({ projects }) => {
                   src={index === 0 ? Ecom : index === 1 ? Holidaze : Auction}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <CardContent>

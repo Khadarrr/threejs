@@ -144,7 +144,7 @@ const Home = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-black/30 backdrop-blur-sm">
+        <section id="contact" className="py-20 ">
           <div className="container mx-auto px-4">
             <p className="text-center text-white/80 text-lg mb-2">Get in Touch</p>
             <h2 className="text-4xl font-bold text-white mb-12 text-center">
@@ -170,7 +170,7 @@ const Home = () => {
         {/* Footer */}
         <footer className="bg-black/20 backdrop-blur-sm py-8">
           <div className="container mx-auto px-4 text-center text-white/60">
-            <p>© 2024 Khadar. All rights reserved.</p>
+            <p>© 2024 Khadar Hashi. All rights reserved.</p>
           </div>
         </footer>
       </div>
