@@ -2,7 +2,7 @@
 
 import React, { Suspense, useRef, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Stars } from '@react-three/drei';
+import { OrbitControls, PerspectiveCamera, } from '@react-three/drei';
 import { Group, SpotLight } from 'three';
 import dynamic from 'next/dynamic';
 
