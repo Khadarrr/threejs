@@ -55,9 +55,9 @@ const ProfileContent = ({ isVisible }: { isVisible: boolean }) => {
         </div>
         <div className="space-y-4 md:space-y-6">
           <div className="space-y-2">
-            <p className="text-lg md:text-xl text-white/80 animate-in fade-in font-light">
-              Hello, I'm
-            </p>
+          <p className="text-lg md:text-xl text-white/80 animate-in fade-in font-light">
+  Hello, I&apos;m
+</p>
             <h1 className="text-4xl md:text-6xl font-bold text-white animate-in slide-in-from-bottom duration-500">
               Khadar
             </h1>
