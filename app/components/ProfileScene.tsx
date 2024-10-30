@@ -4,7 +4,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Float } from '@react-three/drei';
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import Link from 'next/link';
 import Image from 'next/image';
 import { Github, Mail } from 'lucide-react';

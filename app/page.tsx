@@ -5,11 +5,9 @@ import { Suspense } from 'react';
 import { useEffect, useState } from "react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail } from "lucide-react";
-import Image from 'next/image';
+import { Github, Mail } from "lucide-react";
 import Link from 'next/link';
-import type { Skill, Project } from "../lib/types";
-import ProfileImage from "../app/textures/me-pic.jpg"
+import type { Skill,} from "../lib/types";
 import ProjectsSection from './components/ProjectSection';
 import ProfileSection from "./components/ProfileScene"
 

@@ -3,7 +3,6 @@
 import React, { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Html } from '@react-three/drei';
-import Image from 'next/image';
 import type { Mesh } from 'three';
 import * as THREE from 'three';
 
