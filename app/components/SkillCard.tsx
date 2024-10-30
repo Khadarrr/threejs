@@ -1,4 +1,3 @@
-// SkillCard.tsx
 "use client";
 
 import React, { useRef, useState } from 'react';
@@ -18,7 +17,6 @@ import TSLogo from "../textures/typscript logo.png";
 import SbaseLogo from "../textures/supabase.jpeg";
 import NextLogo from "../textures/nextJS.jpg";
 
-// Define images and colors by skill
 const skillImages = {
   TypeScript: TSLogo,
   JavaScript: JSLogo,
@@ -34,9 +32,10 @@ interface SkillCardProps {
   skill: keyof typeof skillImages;
   position: [number, number, number];
   rotation: [number, number, number];
+  isMobile: boolean;
 }
 
-const SkillCard: React.FC<SkillCardProps> = ({ skill, position, rotation }) => {
+const SkillCard: React.FC<SkillCardProps> = ({ skill, position, rotation, isMobile }) => {
   const meshRef = useRef<Mesh>(null);
   const [hovered, setHovered] = useState(false);
 
@@ -75,12 +74,24 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, position, rotation }) => {
       onPointerLeave={() => setHovered(false)}
       material={materials}
     >
-      <boxGeometry args={[2, 2, 2]} />
-
-      {/* Display skill name on hover */}
+      <boxGeometry args={[
+        isMobile ? 1.5 : 2, // width
+        isMobile ? 1.5 : 2, // height
+        isMobile ? 1.5 : 2, // depth
+        1, // widthSegments
+        1, // heightSegments
+        1  // depthSegments
+      ]} />
+      
       {hovered && (
-        <Html position={[0, 1.5, 0]} center>
-          <div className="bg-black text-white px-2 py-1 rounded-md text-sm">
+        <Html
+          position={[0, (isMobile ? 1.5 : 2) * 0.8, 0]}
+          center
+          style={{
+            transform: `scale(${isMobile ? 0.7 : 1})`,
+          }}
+        >
+          <div className="bg-black text-white px-2 py-1 rounded-md text-sm md:text-base">
             {skill}
           </div>
         </Html>

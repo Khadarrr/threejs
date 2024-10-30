@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
+
 // Import your images statically
 import FrontPic from '../textures/diamond.jpg';
 import BackPic from '../textures/diamond.jpg';
@@ -146,17 +147,17 @@ const ThreeScene: React.FC<ThreeSceneProps> = ({
 
     // Create materials for main cube
     const materials = textures.map(texture => {
-      texture.encoding = THREE.sRGBEncoding;
-      texture.minFilter = THREE.LinearFilter;
-      texture.magFilter = THREE.LinearFilter;
-      
-      return new THREE.MeshStandardMaterial({ 
-        map: texture,
-        roughness: 0.7,
-        metalness: 0.3
+        // Use colorSpace instead of encoding
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.minFilter = THREE.LinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        
+        return new THREE.MeshStandardMaterial({ 
+          map: texture,
+          roughness: 0.7,
+          metalness: 0.3
+        });
       });
-    });
-
     // Create main cube
     const geometry = new THREE.BoxGeometry(2, 2, 2, 3, 3, 3);
     const cube = new THREE.Mesh(geometry, materials);

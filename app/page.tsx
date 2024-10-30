@@ -11,6 +11,7 @@ import Link from 'next/link';
 import type { Skill, Project } from "../lib/types";
 import ProfileImage from "../app/textures/me-pic.jpg"
 import ProjectsSection from './components/ProjectSection';
+import ProfileSection from "./components/ProfileScene"
 
 function LoadingProgress() {
   const [progress, setProgress] = useState(13);
@@ -117,48 +118,7 @@ const Home = () => {
       {/* Portfolio Content Overlay */}
       <div className="relative z-10">
         {/* Profile Section */}
-        <section className="min-h-screen flex items-center justify-center px-4">
-          <div className="text-center">
-            <div className="mb-6">
-              <div className="w-48 h-48 mx-auto rounded-full bg-white/10 mb-4 relative overflow-hidden">
-                <Image
-                  src={ProfileImage}
-                  alt="Profile"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </div>
-            <p className="text-xl text-white/80 mb-2">Hello, I'm</p>
-            <h1 className="text-6xl font-bold text-white mb-4">
-              Khadar
-            </h1>
-            <p className="text-2xl text-white/80 mb-8">
-            Developer
-            </p>
-            <div className="flex justify-center gap-4 mb-8">
-              <Button size="lg" asChild>
-                <Link href="#contact">Contact Me</Link>
-              </Button>
-              <Button variant="outline" size="lg" asChild>
-                <Link href="#projects">View Projects</Link>
-              </Button>
-            </div>
-            <div className="flex justify-center gap-6">
-              <Button variant="ghost" size="icon" asChild>
-                <Link href="https://github.com/Khadarrr" target="_blank">
-                  <Github className="h-6 w-6" />
-                </Link>
-              </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <Link href="mailto:Khadar_shire@hotmail.com">
-                  <Mail className="h-6 w-6" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </section>
+        <ProfileSection/>
 
         {/* Projects Section */}
         <ProjectsSection projects={projects} />
