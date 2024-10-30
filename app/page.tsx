@@ -64,19 +64,19 @@ const SkillsScene = dynamic(
 const projects = [
   {
     title: "E-commerce Site",
-    description: "A fully functional e-commerce website built with Next.js and Tailwind CSS.",
+    description: "A functional shopping cart application built by using Zustand state management",
     github: "https://github.com/Khadarrr/e-commerce",
     live: "https://e-commerce-orcin-omega.vercel.app/"
   },
   {
     title: "Holidaze",
-    description: "A travel planning app that helps users find the best vacation spots.",
+    description: "A Airbnb type app that helps users find the best vacation spots, built using Noroffs API",
     github: "https://github.com/Khadarrr/holidaze-bookings",
     live: "https://holidaze-bookings.vercel.app/"
   },
   {
     title: "Auction House",
-    description: "An online auction platform where users can buy and sell items.",
+    description: "An online auction platform where users can buy and sell items, built using Noroffs API",
     github: "https://github.com/Khadarrr/Auction-House-sp",
     live: "auctionsphere.netlify.app"
   }
