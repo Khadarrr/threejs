@@ -107,15 +107,6 @@ const SkillsScene: React.FC<SkillsSceneProps> = ({ skills }) => {
         
         <MovingLights isMobile={isMobile} />
         
-        <Stars 
-          radius={isMobile ? 40 : 60} 
-          depth={isMobile ? 35 : 50} 
-          count={isMobile ? 4000 : 7000} 
-          factor={4} 
-          saturation={0} 
-          fade 
-          speed={0.5} 
-        />
         
         <Suspense fallback={<span>Loading...</span>}>
           <SkillGroup skills={skills} isMobile={isMobile} />
