@@ -108,7 +108,7 @@ const Home = () => {
         >
           <ThreeScene
             backgroundColor="#370617"
-            rotationSpeed={0.020}
+            rotationSpeed={0.010}
           />
         </Suspense>
       </div>
