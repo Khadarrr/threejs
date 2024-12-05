@@ -102,8 +102,8 @@ const SkillsScene: React.FC<SkillsSceneProps> = ({ skills }) => {
           fov={isMobile ? 90 : 75}
         />
         
-        <ambientLight intensity={0.3} />
-        <pointLight position={[0, 20, 0]} intensity={0.5} />
+        <ambientLight intensity={0.5} />
+        <pointLight position={[0, 20, 0]} intensity={0.7} />
         
         <MovingLights isMobile={isMobile} />
         
@@ -118,7 +118,7 @@ const SkillsScene: React.FC<SkillsSceneProps> = ({ skills }) => {
           maxDistance={isMobile ? 25 : 30}
           enablePan={false}
           autoRotate
-          autoRotateSpeed={0.5}
+          autoRotateSpeed={0.7}
           minPolarAngle={Math.PI / 4}
           maxPolarAngle={Math.PI - Math.PI / 4}
         />
