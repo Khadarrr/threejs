@@ -113,7 +113,7 @@ const SkillsScene: React.FC<SkillsSceneProps> = ({ skills }) => {
         </Suspense>
         
         <OrbitControls 
-          enableZoom={true}
+          enableZoom={false}
           minDistance={isMobile ? 15 : 20}
           maxDistance={isMobile ? 25 : 30}
           enablePan={false}
