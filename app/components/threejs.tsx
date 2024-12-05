@@ -163,38 +163,7 @@ const ThreeScene: React.FC<ThreeSceneProps> = ({
     const cube = new THREE.Mesh(geometry, materials);
     scene.add(cube);
 
-    // Create satellite cubes with proper typing
-    const createSatelliteCube = (color: number) => {
-      const satelliteGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
-      const satelliteMaterial = new THREE.MeshStandardMaterial({ 
-        color,
-        roughness: 0.3,
-        metalness: 0.7,
-      });
-      const satelliteCube = new THREE.Mesh(satelliteGeometry, satelliteMaterial);
-      
-      const cubeGroup = new THREE.Group();
-      cubeGroup.add(satelliteCube);
-      
-      return cubeGroup;
-    };
-
-    const satelliteCubes = [
-      createSatelliteCube(0x000000),
-      createSatelliteCube(0x000000),
-      createSatelliteCube(0x000000),
-      createSatelliteCube(0x000000)
-    ];
-
-    const radius = 2;
-    satelliteCubes.forEach((cube, index) => {
-      const angle = (index / satelliteCubes.length) * Math.PI * 2;
-      cube.position.x = Math.cos(angle) * radius;
-      cube.position.z = Math.sin(angle) * radius;
-      cube.position.y = -1.75;
-      scene.add(cube);
-    });
-
+   
     // Add OrbitControls
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
@@ -240,20 +209,6 @@ const ThreeScene: React.FC<ThreeSceneProps> = ({
       cube.rotation.x += rotationSpeed;
       cube.rotation.y += rotationSpeed;
 
-      // Animate satellite cubes
-      satelliteCubes.forEach((cubeGroup, index) => {
-        const angle = time + (index * (Math.PI * 2) / satelliteCubes.length);
-        cubeGroup.position.x = Math.cos(angle) * radius;
-        cubeGroup.position.z = Math.sin(angle) * radius;
-        
-        const satelliteCube = cubeGroup.children[0];
-        if (satelliteCube instanceof THREE.Mesh) {
-          satelliteCube.rotation.x += rotationSpeed * 2;
-          satelliteCube.rotation.y += rotationSpeed * 2;
-        }
-        
-        cubeGroup.position.y = -1.75 + Math.sin(time * 5 + index) * 0.05;
-      });
 
       controls.update();
       renderer.render(scene, camera);
