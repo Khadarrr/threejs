@@ -41,7 +41,7 @@ const ThreeScene = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="h-screen w-full flex items-center justify-center bg-[#212121]">
+      <div className="h-screen w-full flex items-center justify-center bg-[#414A51]">
         <LoadingProgress />
       </div>
     )
@@ -101,13 +101,13 @@ const Home = () => {
       <div className="fixed inset-0">
         <Suspense
           fallback={
-            <div className="h-screen w-full flex items-center justify-center bg-[#212121]">
+            <div className="h-screen w-full flex items-center justify-center bg-[#414A51]">
               <LoadingProgress />
             </div>
           }
         >
           <ThreeScene
-            backgroundColor="#212121"
+            backgroundColor="#414A51"
             rotationSpeed={0.010}
           />
         </Suspense>

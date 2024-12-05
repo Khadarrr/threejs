@@ -37,20 +37,21 @@ const ProfileContent = ({ isVisible }: { isVisible: boolean }) => {
         <div className="mb-6 relative">
           <div className="relative w-32 h-32 md:w-48 md:h-48 mx-auto rounded-full overflow-hidden 
                       border-4 border-white/20 shadow-lg">
-            <div className="relative w-full h-full transform transition-transform duration-300">
-              <Image
-                src={ProfileImage}
-                alt="Profile"
-                quality={95}
-                fill
-                sizes="(max-width: 768px) 128px, 192px"
-                className={`object-cover transition-opacity duration-300 ${
-                  imageLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
-                onLoad={() => setImageLoaded(true)}
-                priority
-              />
-            </div>
+            <div className="relative w-full h-full transform transition-transform duration-300 bg-white/10 backdrop-blur-sm rounded-full overflow-hidden">
+  <Image
+    src={ProfileImage}
+    alt="Profile"
+    quality={95}
+    fill
+    sizes="(max-width: 768px) 128px, 192px"
+    className={`object-cover opacity-70 transition-opacity duration-300 ${
+      imageLoaded ? 'opacity-100' : 'opacity-0'
+    }`}
+    onLoad={() => setImageLoaded(true)}
+    priority
+  />
+</div>
+
           </div>
         </div>
         <div className="space-y-4 md:space-y-6">
