@@ -8,7 +8,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Github, Mail } from 'lucide-react';
 import * as THREE from 'three';
-import ProfileImage from "../textures/me-pic.jpg";
+import ProfileImage from "../textures/portrett-meg.jpg";
 
 // Custom hook for responsive design
 const useResponsive = () => {

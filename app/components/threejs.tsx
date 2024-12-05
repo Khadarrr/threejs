@@ -5,12 +5,12 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 
 // Import your images statically
-import FrontPic from '../textures/glass-p.jpg';
-import BackPic from '../textures/glass-p.jpg';
-import TopPic from '../textures/glass-p.jpg';
-import BottomPic from '../textures/glass-p.jpg';
-import RightPic from '../textures/glass-p.jpg';
-import LeftPic from '../textures/glass-p.jpg';
+import FrontPic from '../textures/stars.jpg';
+import BackPic from '../textures/stars.jpg';
+import TopPic from '../textures/stars.jpg';
+import BottomPic from '../textures/stars.jpg';
+import RightPic from '../textures/stars.jpg';
+import LeftPic from '../textures/stars.jpg';
 
 // Define custom interfaces
 interface ParticleMesh extends THREE.Mesh {
