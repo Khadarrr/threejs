@@ -78,7 +78,7 @@ const projects = [
     title: "Auction House",
     description: "An online auction platform where users can buy and sell items, built using Noroffs API",
     github: "https://github.com/Khadarrr/Auction-House-sp",
-    live: "auctionsphere.netlify.app"
+    live: "https://auctionsphere.netlify.app/"
   }
 ];
 
