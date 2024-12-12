@@ -60,27 +60,30 @@ const SkillsScene = dynamic(
   }
 );
 
-// Example of projects array
+
 const projects = [
   {
-    title: "E-commerce Site",
-    description: "A functional shopping cart application built by using Zustand state management",
-    github: "https://github.com/Khadarrr/e-commerce",
-    live: "https://e-commerce-orcin-omega.vercel.app/"
+    "title": "E-commerce Site",
+    "description": "E-commerce platform where the shopping cart leverages Zustand state management for dynamic updates, showcasing expertise in state management and responsive design.",
+    "github": "https://github.com/Khadarrr/e-commerce",
+    "live": "https://e-commerce-orcin-omega.vercel.app/"
   },
+  
   {
-    title: "Holidaze",
-    description: "A Airbnb type app that helps users find the best vacation spots, built using Noroffs API",
-    github: "https://github.com/Khadarrr/holidaze-bookings",
-    live: "https://holidaze-bookings.vercel.app/"
+    "title": "Holidaze",
+    "description": "A responsive vacation booking platform, allowing users to book stays and hosts to manage properties. Built using Noroff's API, highlighting frontend and API integration skills.",
+    "github": "https://github.com/Khadarrr/holidaze-bookings",
+    "live": "https://holidaze-bookings.vercel.app/"
   },
+  
   {
-    title: "Auction House",
-    description: "An online auction platform where users can buy and sell items, built using Noroffs API",
-    github: "https://github.com/Khadarrr/Auction-House-sp",
-    live: "https://auctionsphere.netlify.app/"
+    "title": "Auction Sphere",
+    "description": "An interactive auction site where users can create accounts to list, buy, and bid on items. Built with Noroff's API, emphasizing seamless user experience and real-time interactions.",
+    "github": "https://github.com/Khadarrr/Auction-House-sp",
+    "live": "https://auctionsphere.netlify.app/"
   }
 ];
+
 
 
 const Home = () => {

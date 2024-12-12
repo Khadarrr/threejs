@@ -20,7 +20,10 @@ const ProjectsSection: React.FC<ProjectsProps> = ({ projects }) => {
         <h2 className="text-4xl font-bold text-white mb-12 text-center">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-white/20 transition-all">
+            <Card
+              key={index}
+              className="bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-white/20 transition-all flex flex-col"
+            >
               <div className="h-48 bg-white/5 relative">
                 <Image
                   src={index === 0 ? Ecom : index === 1 ? Holidaze : Auction}
@@ -29,11 +32,11 @@ const ProjectsSection: React.FC<ProjectsProps> = ({ projects }) => {
                   className="object-contain"
                 />
               </div>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <CardTitle className="text-xl font-bold text-white mb-4">{project.title}</CardTitle>
                 <p className="text-white/80 mb-4">{project.description}</p>
               </CardContent>
-              <CardFooter className="flex justify-between gap-4">
+              <CardFooter className="flex justify-between gap-4 mt-auto">
                 <Button variant="secondary" className="w-full" asChild>
                   <Link href={project.github} target="_blank">Github</Link>
                 </Button>
