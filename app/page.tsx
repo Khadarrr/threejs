@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 import { useEffect, useState } from "react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import { Github, Mail } from "lucide-react";
+import { Github, Mail, Instagram, Facebook  } from "lucide-react";
 import Link from 'next/link';
 import type { Skill,} from "../lib/types";
 import ProjectsSection from './components/ProjectSection';
@@ -147,33 +147,41 @@ const Home = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 ">
-          <div className="container mx-auto px-4">
-            <p className="text-center text-white/80 text-lg mb-2">Get in Touch</p>
-            <h2 className="text-4xl font-bold text-white mb-12 text-center">
-              🥷
-            </h2>
-            <div className="flex justify-center items-center gap-8">
-              <Button variant="ghost" className="text-white" asChild>
-                <Link href="mailto:Khadar_shire@hotmail.com">
-                  <Mail className="mr-2 h-5 w-5" />
-                  Khadar_shire@hotmail.com
-                </Link>
-              </Button>
-              <Button variant="ghost" className="text-white" asChild>
-                <Link href="https://github.com/khadarrr" target="_blank">
-                  <Github className="mr-2 h-5 w-5" />
-                  Khadarrr
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </section>
+        <section id="contact" className="py-20">
+      <div className="container mx-auto px-4">
+        <p className="text-center text-white/80 text-lg mb-2">Get in Touch</p>
+        <h2 className="text-4xl font-bold text-white mb-12 text-center">🥷</h2>
+        <div className="flex justify-center items-center gap-8">
+          <Button variant="ghost" className="text-white" asChild>
+            <Link href="mailto:Khadar_shire@hotmail.com">
+              <Mail className="mr-2 h-5 w-5" />
+            </Link>
+          </Button>
+          <Button variant="ghost" className="text-white" asChild>
+            <Link href="https://github.com/khadarrr" target="_blank">
+              <Github className="mr-2 h-5 w-5" />
+            </Link>
+          </Button>
+          <Button variant="ghost" className="text-white" asChild>
+            <Link href="https://instagram.com/kadvfi" target="_blank">
+              <Instagram className="mr-2 h-5 w-5" />
+              
+            </Link>
+          </Button>
+          <Button variant="ghost" className="text-white" asChild>
+            <Link href="https://www.facebook.com/LilCaddy" target="_blank">
+              <Facebook className="mr-2 h-5 w-5" />
+              
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </section>
 
         {/* Footer */}
         <footer className="bg-black/20 backdrop-blur-sm py-8">
           <div className="container mx-auto px-4 text-center text-white/60">
-            <p>© 2024 Khadar Hashi. All rights reserved.</p>
+            <p>© 2024 Khadar All rights reserved.</p>
           </div>
         </footer>
       </div>
