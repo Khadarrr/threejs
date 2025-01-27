@@ -150,7 +150,6 @@ const Home = () => {
         <section id="contact" className="py-20">
       <div className="container mx-auto px-4">
         <p className="text-center text-white/80 text-lg mb-2">Get in Touch</p>
-        <h2 className="text-4xl font-bold text-white mb-12 text-center">🥷</h2>
         <div className="flex justify-center items-center gap-8">
           <Button variant="ghost" className="text-white" asChild>
             <Link href="mailto:Khadar_shire@hotmail.com">
