@@ -22,7 +22,7 @@ const ProjectsSection: React.FC<ProjectsProps> = ({ projects }) => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-white/20 transition-all flex flex-col"
+              className="bg-transparent backdrop-blur-sm overflow-hidden hover:bg-white/10 transition-all flex flex-col border-0 shadow-none"
             >
               <div className="h-48 bg-white/5 relative">
                 <Image
