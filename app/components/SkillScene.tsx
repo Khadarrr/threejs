@@ -17,7 +17,7 @@ interface SkillsSceneProps {
 const SkillGroup: React.FC<{ skills: Skill[]; isMobile: boolean }> = ({ skills, isMobile }) => {
   const groupRef = useRef<Group>(null);
   const radius = isMobile ? 7 : 10; // Smaller radius for mobile
-  const rotationSpeed = 0.1;
+  const rotationSpeed = 0.7;
 
   useFrame(({ clock }) => {
     if (groupRef.current) {
