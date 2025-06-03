@@ -23,11 +23,11 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({
   project,
   position,
-  angle,
+  // angle, // Removed since not used
   isMobile,
   isSelected,
   onClick,
-  cameraPosition
+  // cameraPosition // Removed since not used
 }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const groupRef = useRef<THREE.Group>(null);
@@ -53,7 +53,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     return t;
   });
   
-  useFrame((state, delta) => {
+  useFrame((state) => {
     if (meshRef.current) {
       if (hovered || isSelected) {
         // Scale up when hovered or selected

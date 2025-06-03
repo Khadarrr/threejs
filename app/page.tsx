@@ -337,15 +337,15 @@ const AboutSection = (): JSX.Element => (
       <div className="flex flex-col md:flex-row gap-12 items-center justify-center max-w-5xl mx-auto">
         <div className="md:w-1/2 order-2 md:order-1">
           <div className="prose prose-invert max-w-none">
-            <p className="text-white/80 text-lg leading-relaxed mb-6 animate-in slide-in-from-left duration-700">
-              I'm a passionate front-end developer with expertise in creating responsive, user-friendly web applications. My journey in development started with a curiosity about how things work on the web, which has evolved into a career building engaging digital experiences.
-            </p>
-            <p className="text-white/80 text-lg leading-relaxed mb-6 animate-in slide-in-from-left duration-1000 delay-100">
-              I specialize in modern JavaScript frameworks like React and Next.js, and I'm experienced in creating seamless user interfaces with TailwindCSS and Three.js for interactive 3D experiences.
-            </p>
-            <p className="text-white/80 text-lg leading-relaxed animate-in slide-in-from-left duration-1000 delay-200">
-              When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, and staying updated with the latest web development trends.
-            </p>
+          <p className="text-white/80 text-lg leading-relaxed mb-6 animate-in slide-in-from-left duration-700">
+  I&apos;m a passionate front-end developer with expertise in creating responsive, user-friendly web applications. My journey in development started with a curiosity about how things work on the web, which has evolved into a career building engaging digital experiences.
+</p>
+<p className="text-white/80 text-lg leading-relaxed mb-6 animate-in slide-in-from-left duration-1000 delay-100">
+  I specialize in modern JavaScript frameworks like React and Next.js, and I&apos;m experienced in creating seamless user interfaces with TailwindCSS and Three.js for interactive 3D experiences.
+</p>
+<p className="text-white/80 text-lg leading-relaxed animate-in slide-in-from-left duration-1000 delay-200">
+  When I&apos;m not coding, I enjoy exploring new technologies, contributing to open-source projects, and staying updated with the latest web development trends.
+</p>
           </div>
           
           <div className="mt-8 flex flex-wrap gap-3 animate-in slide-in-from-bottom duration-1000 delay-300">
@@ -439,20 +439,14 @@ const Home = (): JSX.Element => {
     "React"
   ];
 
-  const [isLoading, setIsLoading] = useState(true);
   const [isVisible, setIsVisible] = useState<VisibilityState>({
     about: false,
     projects: false,
     skills: false,
     contact: false
   });
-
+  
   useEffect(() => {
-    // Simulate initial loading time
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-    
     // Intersection observer for section animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -469,11 +463,10 @@ const Home = (): JSX.Element => {
     sections.forEach(section => observer.observe(section));
     
     return () => {
-      clearTimeout(timer);
       sections.forEach(section => observer.unobserve(section));
     };
   }, []);
-
+  
   // Handle smooth scroll implementation for hash links
   useEffect(() => {
     const handleHashClick = (e: MouseEvent): void => {
@@ -568,9 +561,9 @@ const Home = (): JSX.Element => {
             
             <div className="max-w-3xl mx-auto">
               <div className="backdrop-blur-lg p-8 rounded-xl border border-white/5 shadow-xl bg-gradient-to-br from-black/20 to-purple-900/10">
-                <p className="text-white/70 text-center mb-8 text-lg">
-                  Feel free to reach out if you're looking for a developer, have a question, or just want to connect. I'm always open to new opportunities and collaborations.
-                </p>
+              <p className="text-white/70 text-center mb-8 text-lg">
+  Feel free to reach out if you&apos;re looking for a developer, have a question, or just want to connect. I&apos;m always open to new opportunities and collaborations.
+</p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
                   <ContactCard 

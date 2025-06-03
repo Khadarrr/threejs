@@ -3,7 +3,7 @@
 import React, { Suspense, useRef, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Environment } from '@react-three/drei';
-import { Group, Vector3 } from 'three';
+import { Group, Vector3, SpotLight } from 'three';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -80,8 +80,8 @@ const ProjectGroup: React.FC<ProjectGroupProps> = ({
 };
 
 const MovingLights: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
-  const spotLightRef1 = useRef<any>(null);
-  const spotLightRef2 = useRef<any>(null);
+  const spotLightRef1 = useRef<SpotLight>(null);
+  const spotLightRef2 = useRef<SpotLight>(null);
   const radius = isMobile ? 15 : 20;
 
   useFrame(({ clock }) => {
@@ -255,5 +255,5 @@ const ProjectsScene: React.FC<ProjectsSceneProps> = ({ projects }) => {
   );
 };
 
-// ✅ Export wrapped in dynamic to avoid SSR issues with Canvas
+
 export default dynamic(() => Promise.resolve(ProjectsScene), { ssr: false });
