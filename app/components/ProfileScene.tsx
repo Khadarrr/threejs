@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import Image from 'next/image';
 import { Github, Mail, ArrowDownCircle, Code, ExternalLink, Linkedin, Twitter } from 'lucide-react';
-import ProfileImage from "../textures/portrett-meg.jpg";
+import ProfileImage from "../textures/69A96C94-4EC4-4527-B0E7-082A5FB7FF2D_1_201_a.jpeg";
 
 // Custom hook for responsive design with breakpoints
 
