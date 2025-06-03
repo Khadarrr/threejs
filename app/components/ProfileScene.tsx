@@ -8,30 +8,6 @@ import { Github, Mail, ArrowDownCircle, Code, ExternalLink, Linkedin, Twitter } 
 import ProfileImage from "../textures/portrett-meg.jpg";
 
 // Custom hook for responsive design with breakpoints
-const useResponsive = () => {
-  const [breakpoint, setBreakpoint] = useState({
-    isMobile: false,
-    isTablet: false,
-    isDesktop: false
-  });
-
-  useEffect(() => {
-    const checkDeviceSize = () => {
-      const width = window.innerWidth;
-      setBreakpoint({
-        isMobile: width < 640,
-        isTablet: width >= 640 && width < 1024,
-        isDesktop: width >= 1024
-      });
-    };
-    
-    checkDeviceSize();
-    window.addEventListener('resize', checkDeviceSize);
-    return () => window.removeEventListener('resize', checkDeviceSize);
-  }, []);
-
-  return breakpoint;
-};
 
 // Enhanced profile content with staged animations
 const ProfileContent = ({ isVisible }: { isVisible: boolean }) => {
