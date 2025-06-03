@@ -591,9 +591,9 @@ const Home = (): JSX.Element => {
                 
                 <div className="mt-10 flex justify-center">
                   <Button variant="default" size="lg" className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 px-8 py-6 text-base shadow-lg shadow-purple-500/20 hover:scale-105 transition-all duration-300" asChild>
-                    <Link href="mailto:Khadar_shire@hotmail.com">
-                      Let's Work Together
-                    </Link>
+                  <Link href="mailto:Khadar_shire@hotmail.com">
+  Let&apos;s Work Together
+</Link>
                   </Button>
                 </div>
               </div>
