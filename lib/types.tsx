@@ -5,5 +5,6 @@ export interface Project {
   description: string;
   github: string;
   live: string;
+ 
 }
 
